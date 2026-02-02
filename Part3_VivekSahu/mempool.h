@@ -4,12 +4,14 @@
 #include <vector>
 #include <set>
 #include <string>
-#include "../Niketan/utxoman.h"
+#include "../Niketan's/utxoman.h"
+#include "verifytx.h"
+
 
 /*
  Transaction Structures
 */
-
+/*
 struct TxInput {
     std::string prev_tx;
     int index;
@@ -27,7 +29,7 @@ struct Transaction {
     std::vector<TxOutput> outputs;
     double fee;
 };
-
+*/
 /*
  Mempool Class
 */
@@ -37,13 +39,13 @@ private:
     int max_size;
 
 public:
-    std::vector<Transaction> transactions;
+    std::vector<transaction> transactions;
     std::set<std::pair<std::string,int>> spent_utxos;
 
     Mempool(int maxSize = 50);
 
     // Validate and add transaction
-    bool add_transaction(const Transaction& tx,
+    bool add_transaction(const transaction& tx,
                          const UTXOManager& utxo_manager,
                          std::string& error);
 
@@ -51,7 +53,7 @@ public:
     void remove_transaction(const std::string& tx_id);
 
     // Get top N transactions by fee
-    std::vector<Transaction> get_top_transactions(int n) const;
+    std::vector<transaction> get_top_transactions(int n) const;
 
     // Clear mempool
     void clear();
