@@ -11,7 +11,7 @@ Mempool::Mempool(int maxSize) {
 /*
  Add transaction to mempool with full validation
 */
-bool Mempool::add_transaction(const Transaction& tx,
+bool Mempool::add_transaction(const transaction& tx,
                               const UTXOManager& utxo_manager,
                               std::string& error)
 {
@@ -91,12 +91,12 @@ void Mempool::remove_transaction(const std::string& tx_id)
 /*
  Return top N transactions sorted by fee
 */
-std::vector<Transaction> Mempool::get_top_transactions(int n) const
+std::vector<transaction> Mempool::get_top_transactions(int n) const
 {
-    std::vector<Transaction> result = transactions;
+    std::vector<transaction> result = transactions;
 
     std::sort(result.begin(), result.end(),
-              [](const Transaction& a, const Transaction& b) {
+              [](const transaction& a, const transaction& b) {
                   return a.fee > b.fee;
               });
 
