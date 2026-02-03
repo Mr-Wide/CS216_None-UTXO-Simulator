@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Niketan's/utxoman.h"
+#include "Niketans/utxoman.h"
 using namespace std;
 
 struct tx_input{
@@ -21,10 +21,12 @@ struct tx_output{
 class transaction{
 public:
     string txid;
+    double fee;
     vector<tx_input> inputs;
     vector<tx_output> outputs;
-     
-    transaction(string ID);
+    
+    transaction() : txid(""), fee(0.001) {} // Default constructor
+    transaction(string ID,double fee=0.001);
     void addInput(string prev_txid,int index, string own);
     void addOutput(double amnt,string address);
 

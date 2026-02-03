@@ -2,8 +2,11 @@
 #include <set>
 using namespace std;
 
-transaction::transaction(string ID){
-    txid = ID;
+
+
+transaction::transaction(string ID,double fee){
+    this->txid = ID;
+    this->fee = fee;
 }
 
 void transaction::addInput(string prev_txid, int index, string own){
@@ -49,7 +52,7 @@ bool transaction::isValid(const UTXOManager& utxo_manager, string& errorMessage)
     }
 
     // 3. Sum(inputs)≥Sum(outputs)(difference=fee)
-    if (totalInputAmount < totalOutputAmount) {
+    if (totalInputAmount < totalOutputAmount+fee) {
         errorMessage = "Insufficient funds: Input sum less than output sum!";
         return false;
     }

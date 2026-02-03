@@ -13,7 +13,7 @@ void mine_block(
     string miner_address,
     Mempool &mempool,
     UTXOManager &utxo,
-    int max_txs = 5
+    int max_txs
 );
 
 #endif

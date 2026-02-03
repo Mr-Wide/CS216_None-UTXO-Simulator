@@ -26,9 +26,9 @@ bool Mempool::add_transaction(const transaction& tx,
 
     // Validate inputs
     for (const auto& in : tx.inputs) {
-        auto utxo_key = std::make_pair(in.prev_tx, in.index);
+        auto utxo_key = std::make_pair(in.prev_txid, in.output_index);
 
-        if (!utxo_manager.hasUTXO(in.prev_tx, in.index)) {
+        if (!utxo_manager.hasUTXO(in.prev_txid, in.output_index)) {
             error = "UTXO does not exist";
             return false;
         }
@@ -44,7 +44,7 @@ bool Mempool::add_transaction(const transaction& tx,
         }
 
         used_in_tx.insert(utxo_key);
-        UTXO* u = utxo_manager.getUTXO(in.prev_tx, in.index);
+        UTXO* u = utxo_manager.getUTXO(in.prev_txid, in.output_index);
         input_sum += u->amount;
 
     }
@@ -78,9 +78,9 @@ bool Mempool::add_transaction(const transaction& tx,
 void Mempool::remove_transaction(const std::string& tx_id)
 {
     for (auto it = transactions.begin(); it != transactions.end(); ++it) {
-        if (it->tx_id == tx_id) {
+        if (it->txid == tx_id) {
             for (const auto& in : it->inputs) {
-                spent_utxos.erase({in.prev_tx, in.index});
+                spent_utxos.erase({in.prev_txid, in.output_index});
             }
             transactions.erase(it);
             return;
