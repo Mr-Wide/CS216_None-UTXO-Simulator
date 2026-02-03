@@ -1,0 +1,485 @@
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction     
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 2
+----------------------
+UTXO: genesis
+Owner: Alice
+Amount: 50
+OutPut Index: 0       
+----------------------
+----------------------
+UTXO: genesis
+Owner: Bob
+Amount: 30
+OutPut Index: 1
+----------------------
+----------------------
+UTXO: genesis
+Owner: Charlie
+Amount: 20
+OutPut Index: 2
+----------------------
+----------------------
+UTXO: genesis
+Owner: David
+Amount: 10
+OutPut Index: 3
+----------------------
+----------------------
+UTXO: genesis
+Owner: Eve
+Amount: 5
+OutPut Index: 4
+----------------------
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 1
+Enter sender: Alice
+Available balance: 50 BTC
+Enter recipient: Bob
+Enter amount: 10
+--- Manual UTXO Selection ---
+Enter UTXO ID to spend (e.g., genesis): genesis
+Enter UTXO Index: 0
+Creating transaction...
+Transaction valid! Fee: 0.001 BTC
+Transaction added to mempool.
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 3
+Mempool has 1 transactions.
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 4
+Enter miner name: miner1
+Mining block with 1 transactions...
+Miner miner1 received 0.001 BTC in fees.
+Block mined successfully!
+Miner reward: 0.001 BTC
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 2
+----------------------
+UTXO: fees_tx_41
+Owner: miner1
+Amount: 0.001
+OutPut Index: 0
+----------------------
+----------------------
+UTXO: genesis
+Owner: Bob
+Amount: 30
+OutPut Index: 1
+----------------------
+----------------------
+UTXO: genesis
+Owner: Charlie
+Amount: 20
+OutPut Index: 2
+----------------------
+----------------------
+UTXO: genesis
+Owner: David
+Amount: 10
+OutPut Index: 3
+----------------------
+----------------------
+UTXO: genesis
+Owner: Eve
+Amount: 5
+OutPut Index: 4
+----------------------
+----------------------
+UTXO: tx_41
+Owner: Bob
+Amount: 10
+OutPut Index: 0
+----------------------
+----------------------
+UTXO: tx_41
+Owner: Alice
+Amount: 39.999
+OutPut Index: 1
+----------------------
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 1
+Enter sender: Alice
+Available balance: 39.999 BTC
+Enter recipient: Bob
+Enter amount: 60
+--- Manual UTXO Selection ---
+Enter UTXO ID to spend (e.g., genesis): tx_41   
+Enter UTXO Index: 1
+Error: Not enough in this UTXO to cover amount + 0.001 fee.
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 5
+Select test scenario:
+1. Double-spend (Part 5)
+1
+Running Test: Alice tries to spend same UTXO twice...
+TX1: Alice -> Bob (10 BTC)... REJECTED (UTXO does not exist)
+TX2: Alice -> Charlie (10 BTC)... REJECTED (Success: UTXO does not exist)
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction     
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 2
+----------------------
+UTXO: genesis
+Owner: Alice
+Amount: 50
+OutPut Index: 0       
+----------------------
+----------------------
+UTXO: genesis
+Owner: Bob
+Amount: 30
+OutPut Index: 1
+----------------------
+----------------------
+UTXO: genesis
+Owner: Charlie
+Amount: 20
+OutPut Index: 2
+----------------------
+----------------------
+UTXO: genesis
+Owner: David
+Amount: 10
+OutPut Index: 3
+----------------------
+----------------------
+UTXO: genesis
+Owner: Eve
+Amount: 5
+OutPut Index: 4
+----------------------
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 1
+Enter sender: Bob
+Available balance: 30 BTC
+Enter recipient: Alice
+Enter amount: 35
+--- Manual UTXO Selection ---
+Enter UTXO ID to spend (e.g., genesis): genesis
+Enter UTXO Index: 0
+Error: Sender does not own this UTXO.
+
+//note: we restarted to simulate as per requirements
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 1
+Enter sender: Bob
+Available balance: 30 BTC
+Enter recipient: Alice
+Enter amount: 35
+--- Manual UTXO Selection ---
+Enter UTXO ID to spend (e.g., genesis): genesis
+Enter UTXO Index: 1
+Error: Not enough in this UTXO to cover amount + 0.001 fee.
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 1
+Enter sender: Alice
+Available balance: 50 BTC
+Enter recipient: Bob
+Enter amount: -1
+--- Manual UTXO Selection ---
+Enter UTXO ID to spend (e.g., genesis): genesis
+Enter UTXO Index: 0
+Creating transaction...
+Transaction Rejected: Negative output amount
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 2
+----------------------
+UTXO: genesis
+Owner: Alice
+Amount: 50
+OutPut Index: 0
+----------------------
+----------------------
+UTXO: genesis
+Owner: Bob
+Amount: 30
+OutPut Index: 1
+----------------------
+----------------------
+UTXO: genesis
+Owner: Charlie
+Amount: 20
+OutPut Index: 2
+----------------------
+----------------------
+UTXO: genesis
+Owner: David
+Amount: 10
+OutPut Index: 3
+----------------------
+----------------------
+UTXO: genesis
+Owner: Eve
+Amount: 5
+OutPut Index: 4
+----------------------
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 1
+Enter sender: Alice
+Available balance: 50 BTC
+Enter recipient: Bob
+Enter amount: 0
+--- Manual UTXO Selection ---
+Enter UTXO ID to spend (e.g., genesis): genesis
+Enter UTXO Index: 0
+Creating transaction...
+Transaction valid! Fee: 0.001 BTC
+Transaction added to mempool.
+
+note: the following demo is for test case 4
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 1
+Enter sender: Alice
+Available balance: 50 BTC
+Enter recipient: Bob
+Enter amount: 10
+--- Manual UTXO Selection ---
+Enter UTXO ID to spend (e.g., genesis): genesis
+Enter UTXO Index: 0
+Creating transaction...
+Transaction Rejected: UTXO already spent in mempool
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 1
+Enter sender: Bob 
+Available balance: 30 BTC
+Enter recipient: Eve
+Enter amount: 10
+--- Manual UTXO Selection ---
+Enter UTXO ID to spend (e.g., genesis): genesis
+Enter UTXO Index: 1
+Creating transaction...
+Transaction valid! Fee: 0.001 BTC
+Transaction added to mempool.
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 3
+Mempool has 2 transactions.
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 4
+Enter miner name: miner2
+Mining block with 2 transactions...
+Miner miner2 received 0.002 BTC in fees.
+Block mined successfully!
+Miner reward: 0.002 BTC
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice: 2
+----------------------
+UTXO: fees_tx_334
+Owner: miner2
+Amount: 0.002
+OutPut Index: 0
+----------------------
+----------------------
+UTXO: genesis
+Owner: Charlie
+Amount: 20
+OutPut Index: 2
+----------------------
+----------------------
+UTXO: genesis
+Owner: David
+Amount: 10
+OutPut Index: 3
+----------------------
+----------------------
+UTXO: genesis
+Owner: Eve
+Amount: 5
+OutPut Index: 4
+----------------------
+----------------------
+UTXO: tx_169
+Owner: Eve
+Amount: 10
+OutPut Index: 0
+----------------------
+----------------------
+UTXO: tx_169
+Owner: Bob
+Amount: 19.999
+OutPut Index: 1
+----------------------
+----------------------
+UTXO: tx_334
+Owner: Bob
+Amount: 0
+OutPut Index: 0
+----------------------
+----------------------
+UTXO: tx_334
+Owner: Alice
+Amount: 49.999
+OutPut Index: 1
+----------------------
+
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs (Genesis Block):
+Main Menu:
+1. Create new transaction
+2. View UTXO set
+3. View mempool
+4. Mine block
+5. Run test scenarios
+6. Exit
+Enter choice:
+
+
+
